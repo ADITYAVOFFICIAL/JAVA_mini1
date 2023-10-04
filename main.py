@@ -5,12 +5,11 @@ import re
 translator = Translator()
 cho = int(input("Enter 0 for translation or 1 for grammar correction: "))
 
-# Function to remove special characters
 def remove_special_chars(text):
     pattern = r'[*#]'
     return re.sub(pattern, '', text)
 
-palm.configure(api_key='YOUR_API_KEY')  
+palm.configure(api_key='YOUR_API_KEY')
 
 # List available models
 models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
@@ -99,16 +98,14 @@ language_codes = {
 }
 
 
-
 if cho == 0:
     text_to_translate = input("Enter the text to be translated: ")
     
     # Get user input for the target language
-    modified_str = input("Enter the target language (e.g., English, Spanish, French): ")
-    target_language_name = modified_str.title()
+    target_language_name = input("Enter the target language (e.g., English, Spanish, French): ")
     
     # Convert target language name to language code
-    target_language_code = language_codes.get(target_language_name, 'en')  # Default to English
+    target_language_code = language_codes.get(target_language_name.title(), 'en')  # Default to English
     
     # Translate the text
     translated_result = translator.translate(text_to_translate, dest=target_language_code)
@@ -116,23 +113,31 @@ if cho == 0:
     # Print the translated text
     print(f"Translated Text: {translated_result.text}")
     
-    # Detect the language of the text
-    # detected_language = translator.detect(text_to_translate)
-    
-    # Print the detected language
-    # print("Detected Language:", detected_language.lang)
-    
 else:
     input_para = input("Enter text: ")
-    prompt = f'Correct the grammar of the text given in the source language. The text is: {input_para}'
-    
-    completion = palm.generate_text(
-        model=model,
-        prompt=prompt,
-        temperature=0.7,  # Adjust the temperature as needed
-        max_output_tokens=2000,
-    )
-    
-    # Print the fixed text without special characters
-    print("Fixed Text:")
-    print(remove_special_chars(completion.result))
+    declang = translator.detect(input_para)
+    if declang.lang != "en":
+        prompt = f'Correct the grammar of the text making sure there is meaning of the corrected text given in the source language. The text is: {input_para}'
+        # Translate input to English for grammar correction
+        fixedprompt = translator.translate(prompt, dest='en').text
+        completion = palm.generate_text(
+            model=model,
+            prompt=fixedprompt,
+            temperature=0.7,  # Adjust the temperature as needed
+            max_output_tokens=2000,
+        )
+        # Translate the corrected text back to the original language
+        corrected_text = remove_special_chars(completion.result)
+        corrected_text_in_original_language = translator.translate(corrected_text, src='en', dest=declang.lang)
+        print("Fixed Text:")
+        print(corrected_text_in_original_language.text)
+    else:
+        prompt = f'Correct the grammar of the text in the source language. The text is: {input_para}'
+        completion = palm.generate_text(
+            model=model,
+            prompt=prompt,
+            temperature=0.7,  # Adjust the temperature as needed
+            max_output_tokens=2000,
+        )
+        print("Fixed Text:")
+        print(remove_special_chars(completion.result))
