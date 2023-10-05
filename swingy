@@ -3,9 +3,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class InputtyundOutputty {
+public class ModernUIApp {
     private JFrame frame;
-    private JTextField leftTextField;
+    private JTextArea leftTextArea;  // Change from JTextField to JTextArea
     private JTextField rightTextField;
     private JButton correctButton;
     private JButton clearButton;
@@ -18,10 +18,12 @@ public class InputtyundOutputty {
         frame.setLayout(new BorderLayout());
 
         JPanel textFieldsPanel = new JPanel(new GridLayout(1, 2));
-        leftTextField = new JTextField();
+        leftTextArea = new JTextArea();  // Change to JTextArea
+        leftTextArea.setLineWrap(true);  // Enable line wrapping
+        leftTextArea.setWrapStyleWord(true);  // Wrap at word boundaries
         rightTextField = new JTextField();
         rightTextField.setEditable(false);
-        textFieldsPanel.add(leftTextField);
+        textFieldsPanel.add(new JScrollPane(leftTextArea));  // Wrap in JScrollPane
         textFieldsPanel.add(rightTextField);
 
         JPanel buttonPanel = new JPanel();
@@ -50,7 +52,7 @@ public class InputtyundOutputty {
         clearButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                leftTextField.setText("");
+                leftTextArea.setText("");  // Clear the JTextArea
                 rightTextField.setText("");
             }
         });
