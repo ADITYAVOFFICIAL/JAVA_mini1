@@ -17,7 +17,7 @@ public class ModernUIApp {
     private static final int PYTHON_SERVER_PORT = 12344;
 
     public ModernUIApp() {
-        frame = new JFrame("THE LANG CORRECTO");
+        frame = new JFrame("TEXT WIZARD");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
@@ -55,7 +55,7 @@ public class ModernUIApp {
         buttonPanel.add(translateButton);
 
         JPanel bottomPanel = new JPanel(new BorderLayout());
-        languageComboBox = new JComboBox<>(new String[]{"Hindi", "English", "Russian","Dutch", "German", "Korean", "Japanese","Thai","Vietnamese","Tamil","Polish","Tibetan","Ukrainian","Indonesian","Hebrew","Chinese (Simplified)","Arabic"});
+        languageComboBox = new JComboBox<>(new String[]{"English", "Hindi", "Russian","Dutch", "German", "Korean", "Japanese","Thai","Vietnamese","Tamil","Polish","Tibetan","Ukrainian","Indonesian","Hebrew","Chinese (Simplified)","Arabic"});
         bottomPanel.add(languageComboBox, BorderLayout.EAST);
         bottomPanel.add(buttonPanel, BorderLayout.CENTER);
 
