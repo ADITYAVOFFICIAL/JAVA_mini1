@@ -100,7 +100,7 @@ def remove_special_chars(text):
     pattern = r'[*#]'
     return re.sub(pattern, '', text)
 # print(f"Server listening on {host}:{port}")
-palm.configure(api_key='AIzaSyAeVEziX5SVO5xC1qg0Riif3MzzXWVsUMc')
+palm.configure(api_key='')
 models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
 model = models[0].name
 while True:
