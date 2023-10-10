@@ -70,7 +70,7 @@ public class ModernUIApp {
                     String correctedText = reader.readLine();
 
                     rightTextArea.setText(correctedText);
-                    System.out.println("Grammar corrected.");
+                    // System.out.println("Grammar corrected.");
 
                     // Close the socket when done
                     pythonSocket.close();
@@ -105,7 +105,7 @@ public class ModernUIApp {
                             String translatedText = reader.readLine();
 
                             rightTextArea.setText(translatedText);
-                            System.out.println("Text translated.");
+                            // System.out.println("Text translated.");
 
                             pythonSocket.close();
                         } catch (IOException ex) {
