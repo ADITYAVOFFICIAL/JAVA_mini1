@@ -15,7 +15,7 @@ public class ModernUIApp {
     private JComboBox<String> languageComboBox;
 
     private static final String PYTHON_SERVER_HOST = "127.0.0.1";
-    private static final int PYTHON_SERVER_PORT = 12345;
+    private static final int PYTHON_SERVER_PORT = 12344;
 
     public ModernUIApp() {
         frame = new JFrame("THE LANG CORRECTO");
