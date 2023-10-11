@@ -39,7 +39,7 @@ body {
 
 .custom_heading-container h2 {
   font-weight: bold;
-  border-bottom: 1px solid #feb543;
+  border-bottom: 3px solid #feb543;
   padding-bottom: 5px;
 }
 
@@ -571,7 +571,12 @@ a:focus {
 
 .contact_section .contact_heading h2 {
   font-weight: bold;
+  border-bottom: 3px solid #feb543;
+  padding-bottom: 5px;
+  display: inline-block;
 }
+
+
 
 .contact_section form .form-control {
   border: none;
@@ -619,6 +624,8 @@ a:focus {
 .contact_section button:hover {
   -webkit-transform: translateY(-7px);
           transform: translateY(-7px);
+  background-color: #feb543;
+  color: black;
 }
 
 /* info section */
