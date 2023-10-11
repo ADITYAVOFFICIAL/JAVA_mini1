@@ -11,7 +11,10 @@
   <link rel="icon" href="./images/favi.png" type="image/x-icon" />
   <link rel="shortcut icon" href="./images/favi.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <meta name="theme-color" content="#RRGGBB">
+  <meta name="theme-color" content="#db5945">
+
+
+
   <title style="font-family: 'Pixelify Sans', cursive;">TEXT WIZARD</title>
 
   <!-- slider stylesheet -->
@@ -31,6 +34,12 @@
   <link href="css/responsive.css" rel="stylesheet"/>
   
 </head>
+<script>
+  var m = document.createElement('meta'); 
+ m.name = 'theme-color'; 
+ m.content = '#152126'; 
+ document.head.appendChild(m);
+</script>
 <body>
   <div class="hero_area">
     <!-- header section strats -->
@@ -342,17 +351,24 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputNumber4" style="font-family: 'Tilt Neon', cursive;">Phone number</label>
-            <input type="tel" class="form-control" id="inputNumber4" name="phone" required />
-          </div>
+            <label for="phoneNumberSelect" style="font-family: 'Tilt Neon', cursive;">Employment</label>
+            <select class="form-control" id="phoneNumberSelect" name="phone"  required style="font-family: 'Tilt Neon', cursive;">
+              <option value="" selected>Select your role</option>
+              <option value="option1">Student</option>
+              <option value="option2">Job</option>
+              <option value="option3">Freelancer</option>
+              <option value="option3">Freelancer</option>
+            </select>
+          </div>          
           <div class="form-group col-md-6">
-            <label for="inputState" style="font-family: 'Tilt Neon', cursive;">Select Topic</label>
+            <label for="inputState" style="font-family: 'Tilt Neon', cursive;">Issue Category</label>
             <select id="inputState" class="form-control" name="service" required style="font-family: 'Tilt Neon', cursive;">
               <option value="" selected>Select a topic</option>
-              <option value="service1">Partner</option>
+              <option value="service1">Partnerering</option>
               <option value="service2">Problem</option>
               <option value="service3">Help</option>
-              <option value="service4">Other</option>
+              <option value="service4">Copyright</option>
+              <option value="service5">Other</option>
               <!-- Add more options as needed -->
             </select>
           </div>
