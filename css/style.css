@@ -218,6 +218,7 @@ a:focus {
   background-size: 14px;
   background-position: center;
   background-color: #383a90;
+  font-family: 'Space Grotesk', sans-serif;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
