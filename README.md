@@ -1,7 +1,6 @@
 # Text_Wizard Web App
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badges)
 ![Status](https://img.shields.io/website-up-down-green-red/https/twizard.netlify.app.svg)
-![Rating](https://img.shields.io/wordpress/plugin/r/child-theme-check.svg)
 ![Forks](https://img.shields.io/github/forks/ADITYAVOFFICIAL/Text_Wizard.svg)
 ![Issues](https://img.shields.io/github/issues/ADITYAVOFFICIAL/Text_Wizard.svg)
 ![PR](https://img.shields.io/github/issues-pr/ADITYAVOFFICIAL/Text_Wizard.svg)
